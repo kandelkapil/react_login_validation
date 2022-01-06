@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav.top-bar {
+  padding: 10px 20px 30px 10px;
+}
+
+.navbar {
+  padding: 30px 30px 30px 30px;
+  height: 100px;
+  width: 100%;
+  background: cornflowerblue;
+}
+
+ul {
+  list-style: none;
+}
+
+ul.nav-bar-left {
+  float: none;
+  display: inline;
+}
+
+ul.nav-bar-right {
+  float: right;
+  display: inline;
+}
+
+li.nav-links {
+  display: inline;
+  padding: 20px;
+}
+
+.navs {
+  text-decoration: none;
+  color: white;
+}
+.login {
+  padding: 60px 30px 40px 30px;
+  margin: auto;
+  width: 50%;
+  border: 1px solid green;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 20vh;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.user-name {
+  padding-bottom: 30px;
+}
+
+.passwd {
+  padding-bottom: 30px;
+  margin-left: 5px;
+}
+
+.login-btn {
+  height: 30px;
+  width: 60px;
+}
+
+input {
+  line-height: 30px;
+}
+
+.text-danger-pass {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  top: 12px;
+  left: 40px;
+}
+
+.text-danger {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  top: 10px;
+  left: 44px;
+}
+
+.text-sucess {
+  color: green;
+  font-size: 12px;
+  position: relative;
+  top: 12px;
+}
+h1 {
+  padding-top: 100px;
+  text-align: center;
+  justify-content: center;
+}
