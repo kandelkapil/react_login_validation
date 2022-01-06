@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import "./style.css";
 import Home from "./Home";
 import About from "./About";
-import { Logout } from "./Logout";
-import { ProtectedRoute } from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 import PageNotFound from "./PageNotFound";
 
 const App = () => {
-  const isvalid = true;
+  const [state, setstate] = useState(false);
+  console.log("state is", state);
   return (
     <>
       <Routes>
         <Route
           path="/homepage"
           element={
-            isvalid ? (
-              <ProtectedRoute>
+            state ? (
+              <ProtectedRoute isvalid={state}>
                 <Home />
               </ProtectedRoute>
             ) : (
-              <Login />
+              <Login state={state} setstate={setstate} />
             )
           }
         />
@@ -29,18 +29,28 @@ const App = () => {
         <Route
           path="/about"
           element={
-            isvalid ? (
-              <ProtectedRoute>
+            state ? (
+              <ProtectedRoute isvalid={state}>
                 <About />
               </ProtectedRoute>
             ) : (
-              <Login />
+              <Login state={state} setstate={setstate} />
             )
           }
         />
-        <Route path="/" exact element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/"
+          exact
+          element={<Login state={state} setstate={setstate} />}
+        />
+        <Route
+          path="/login"
+          element={<Login state={state} setstate={setstate} />}
+        />
+        <Route
+          path="/logout"
+          element={<Login state={state} setstate={setstate} />}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

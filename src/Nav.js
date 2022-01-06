@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router";
 const Nav = () => {
+  const navigate = useNavigate();
+  const Logout = () => {
+    return navigate("/login");
+  };
+
   return (
     <div className="navbar">
       <nav className="top-bar">
@@ -25,9 +30,7 @@ const Nav = () => {
             </Link>
           </li>
           <li className="nav-links">
-            <Link className="navs" to="/logout">
-              logout
-            </Link>
+            <button onClick={Logout}>log out</button>
           </li>
         </ul>
       </nav>

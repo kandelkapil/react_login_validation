@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = ({ state, setstate }) => {
   const [username, setusername] = useState();
   const [password, setpassword] = useState();
   const [errors, seterrors] = useState([{}]);
   const userinfo = { name: "user123", pass: "pass" };
+
+  const navigate = useNavigate();
 
   const validate_form = (e) => {
     e.preventDefault();
@@ -12,7 +15,8 @@ const Login = () => {
 
     if (username === userinfo.name && password === userinfo.pass) {
       errors["login"] = "Login Successful.";
-      console.log("Username and Password Validated");
+      setstate(true);
+      navigate("/homepage");
     }
 
     if (username === userinfo.name && password !== userinfo.pass) {
