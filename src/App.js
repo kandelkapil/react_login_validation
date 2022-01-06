@@ -7,25 +7,35 @@ import About from "./About";
 import { Logout } from "./Logout";
 import { ProtectedRoute } from "./ProtectedRoute";
 import PageNotFound from "./PageNotFound";
+
 const App = () => {
+  const isvalid = true;
   return (
     <>
       <Routes>
         <Route
           path="/homepage"
           element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
+            isvalid ? (
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            ) : (
+              <Login />
+            )
           }
         />
 
         <Route
           path="/about"
           element={
-            <ProtectedRoute>
-              <About />
-            </ProtectedRoute>
+            isvalid ? (
+              <ProtectedRoute>
+                <About />
+              </ProtectedRoute>
+            ) : (
+              <Login />
+            )
           }
         />
         <Route path="/" exact element={<Login />} />

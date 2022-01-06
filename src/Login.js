@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 
-import { ProtectedRoute } from "./ProtectedRoute";
-
 const Login = () => {
   const [username, setusername] = useState();
   const [password, setpassword] = useState();
   const [errors, seterrors] = useState([{}]);
   const userinfo = { name: "user123", pass: "pass" };
-  const [valid, setvalid] = useState(false);
 
   const validate_form = (e) => {
     e.preventDefault();
@@ -15,9 +12,7 @@ const Login = () => {
 
     if (username === userinfo.name && password === userinfo.pass) {
       errors["login"] = "Login Successful.";
-      setvalid(true);
-      <ProtectedRoute isvalid={valid} />;
-      console.log("setvalid is true");
+      console.log("Username and Password Validated");
     }
 
     if (username === userinfo.name && password !== userinfo.pass) {
